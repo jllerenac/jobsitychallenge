@@ -2,7 +2,7 @@
 
 # Add the following configuration to apache httpd.conf
 
-<VirtualHost *:80>
+<VirtualHost *:80> <br>
     DocumentRoot "/srv/www/htdocs/jobsitychallenge/jose_llerena"
     ServerName jose-llerena.jobsitychallenge.com
 //    Other directives here
