@@ -75,10 +75,10 @@ class Entry_Model extends CI_Model {
                         <tbody id ='tabTweet' > ";
                 
                 $settings = array(
-                    'oauth_access_token' => "57037596-fGRd2MYgRARIqdIiFuG4wNQHNVwQT6kubJ5PVhFdf",
-                    'oauth_access_token_secret' => "zle1jz1sOYptQVt1zXSWsqc0ni99K5s60jKIemRAjw9hj",
-                    'consumer_key' => "LSYmKmHDrwUljU7rnl5KWFqqp",
-                    'consumer_secret' => "pF0fesMTfMZKVFrXOwo2WdT1TERxIPQyhcDS4WlaKJGYj8pGbc"
+                    'oauth_access_token' => "",
+                    'oauth_access_token_secret' => "",
+                    'consumer_key' => "",
+                    'consumer_secret' => ""
                 );
                 $usrId = $userId ;
                 $twitterUser = $this->db->query("select josellerena.obtain_twitterUser($usrId) as twitterUser")->row();
