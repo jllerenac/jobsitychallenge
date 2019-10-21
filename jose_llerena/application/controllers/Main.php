@@ -69,6 +69,21 @@ public function genTweets()
     $this->Entry_Model->genTweets($userId);
 }
 
+public function hideTweet()
+{ 
+    $tweetId = $this->input->post('tweetId');
+    $tweet = $this->input->post('tweet');
+    $this->load->model('Entry_Model', '', TRUE);
+    $this->Entry_Model->hideTweet($tweetId,$tweet);
+}
+
+public function showTweet()
+{ 
+    $tweetId = $this->input->post('tweetId');
+    $this->load->model('Entry_Model', '', TRUE);
+    $this->Entry_Model->showTweet($tweetId);
+}
+
 function logout()
  {
   $data = $this->session->all_userdata();

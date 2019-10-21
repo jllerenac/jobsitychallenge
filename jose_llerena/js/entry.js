@@ -63,6 +63,45 @@ function genTweets(userId)
     });
 }
 
+function hideTweet(tweetId)
+{
+    var twtId = tweetId ;
+    var twt = $('#userTweet'+twtId).text() ; 
+    $.ajax({
+        type: "POST",
+        url: ('Main/hideTweet'),
+        data : {tweetId: twtId, tweet: twt},
+        success: function(response)
+        {
+            $('#hideId'+twtId).remove();
+            $('#tweetRow'+twtId).append("<td id='showId"+twtId+"' style='padding: 0; cursor: pointer;' title='Show Tweet'><span onclick='showTweet(\""+twtId+"\")'><a href='#'>Show Tweet</a></span></td>");
+        },
+        error: function(xhr, ajaxOptions, thrownError)
+        {
+            jAlert('Error','MESSAGE');
+        }
+    });
+}
+
+function showTweet(tweetId)
+{
+    var twtId = tweetId ;
+    $.ajax({
+        type: "POST",
+        url: ('Main/showTweet'),
+        data : {tweetId: twtId},
+        success: function(response)
+        {
+            $('#showId'+twtId).remove();
+            $('#tweetRow'+twtId).append("<td id='hideId"+twtId+"' style='padding: 0; cursor: pointer;' title='Hide Tweet'><span onclick='hideTweet(\""+twtId+"\")'><a href='#'>Hide Tweet</a></span></td>");
+        },
+        error: function(xhr, ajaxOptions, thrownError)
+        {
+            jAlert('Error','MESSAGE');
+        }
+    });
+}
+
 function editEntry(entryId)
 {
     $('#uEntryId').val($('#entryId'+entryId).text());
