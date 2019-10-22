@@ -73,12 +73,12 @@ class Entry_Model extends CI_Model {
                             </tr> 
                         </thead> 
                         <tbody id ='tabTweet' > ";
-                
+                // you need to obtain your own keys 
                 $settings = array(
-                    'oauth_access_token' => "",
-                    'oauth_access_token_secret' => "",
-                    'consumer_key' => "",
-                    'consumer_secret' => ""
+                    'oauth_access_token' => "57037596-fGRd2MYgRARIqdIiFuG4wNQHNVwQT6kubJ5PVhFdf",
+                    'oauth_access_token_secret' => "zle1jz1sOYptQVt1zXSWsqc0ni99K5s60jKIemRAjw9hj",
+                    'consumer_key' => "LSYmKmHDrwUljU7rnl5KWFqqp",
+                    'consumer_secret' => "pF0fesMTfMZKVFrXOwo2WdT1TERxIPQyhcDS4WlaKJGYj8pGbc"
                 );
                 $usrId = $userId ;
                 $twitterUser = $this->db->query("select josellerena.obtain_twitterUser($usrId) as twitterUser")->row();
@@ -92,13 +92,17 @@ class Entry_Model extends CI_Model {
                 foreach ($tweets as $uTweets)
                 {
                     $checkHidden = $this->db->query("select josellerena.checkHidden($uTweets->id) as tweet")->row();
+                    // here validate if user is accessing to his own tweets
+                    // if is user tweets, it will show them otherwise it will show unhidden tweets regardless user
                     if ($this->session->id == $userId || $checkHidden->tweet == 0 )
                     {
                         echo "<tr id='tweetRow".$uTweets->id . "'> 
                         <td style='padding: 0; display: none' id='tweetId"."$uTweets->id'>$uTweets->id</td>
                         <td style='padding: 0;' id='userTweet"."$uTweets->id'>$uTweets->text</td> 
                         <td style='padding: 0; display: none' id='tUserId"."$userId'>$userId</td>";
-                        if($this->session->id && $this->session->id == $userId ) 
+                 
+                        // here I ask again if is user's tweets so if it is, it will check if is hidden or not
+                        if($this->session->id == $userId ) 
                         {
                             if ($checkHidden->tweet == '0') 
                             {
@@ -115,12 +119,16 @@ class Entry_Model extends CI_Model {
                 </div>
             </div>";
     }
+    // for hiding it will first check if record exist in table, if it doesnt, the record is inserted
+    // if already exists, it will only update table setting hidden field to value of 1
     public function hideTweet($tweetId,$tweet)
     {
         $userId = $this->session->id;
         $this->db->query("call josellerena.hideTweet('$tweetId',\"$tweet\",$userId);");
         $this->db->close();
     }
+
+    // to show tweet, the record will already exist, so it will only update hidden field to 0, and record will be kept in DB
     public function showTweet($tweetId)
     {
         $this->db->set('hidden', 0);

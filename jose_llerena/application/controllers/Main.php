@@ -5,6 +5,8 @@ class Main extends CI_Controller {
  public function __construct()
  {
   parent::__construct();
+  // since it is public I dont validate at constructor level
+  // My validation is when generating info, so if user is not logged I dont generate buttons
 //  if(!$this->session->userdata('id'))
 //  {
 //   redirect('login');
@@ -23,6 +25,7 @@ class Main extends CI_Controller {
   else
   {
     echo '<p align="center"><a href="'.base_url().'Login">Login</a></p>';
+    echo '<p align="center"><a href="'.base_url().'Register">Register</a></p>';
   }
   $data['title'] = 'JOSE PAGE - USER ENTRIES';
   $this->load->view('header',$data);

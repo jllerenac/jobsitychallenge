@@ -74,7 +74,7 @@ CREATE TABLE `twitter` (
 
 LOCK TABLES `twitter` WRITE;
 /*!40000 ALTER TABLE `twitter` DISABLE KEYS */;
-INSERT INTO `twitter` VALUES ('1032752972567142403','@adriana_verar Vikings',1,1),('1033095364939841543','@NSAGov Excellent requirement, not for me, I ain\'t from the US, but good luck finding the best fit',1,1),('1172571671406043136','@S1r1u5_ @Hacker0x01 Good, thats a motivation to always try',1,1),('1186047059759116291','Starting to test with Twitter API',1,1),('1186310858416242688','@GeneralEG64 Congratulations! ????',0,2),('603789695944892416','@danieltosh love your show greetings from Ecuador',1,1),('798199982516043778','@MashiRafael Estimado Sr. Presidente buena noticia, una consulta alguna vez pensó en un tren de transporte de carga o pasajeros? Saludos',1,1),('842102924859850753','@NatGeo it barely shows something, I really doubt if python really killed hyena, probably hyena was already dead',1,1),('880829423506915328','@MunicipioCuenca Salvemos el Refugio de la Fundación ARCA con 300 perritos - ¡Firma la petic... https://t.co/Wx4KO54esK via @ChangeorgLatino',1,1);
+INSERT INTO `twitter` VALUES ('1032752972567142403','@adriana_verar Vikings',1,1),('1033095364939841543','@NSAGov Excellent requirement, not for me, I ain\'t from the US, but good luck finding the best fit',1,1),('1172571671406043136','@S1r1u5_ @Hacker0x01 Good, thats a motivation to always try',1,1),('1186047059759116291','Starting to test with Twitter API',1,1),('1186310858416242688','@GeneralEG64 Congratulations! ????',0,2),('603789695944892416','@danieltosh love your show greetings from Ecuador',1,1),('798199982516043778','@MashiRafael Estimado Sr. Presidente buena noticia, una consulta alguna vez pensó en un tren de transporte de carga o pasajeros? Saludos',1,1),('842102924859850753','@NatGeo it barely shows something, I really doubt if python really killed hyena, probably hyena was already dead',1,1),('880829423506915328','@MunicipioCuenca Salvemos el Refugio de la Fundación ARCA con 300 perritos - ¡Firma la petic... https://t.co/Wx4KO54esK via @ChangeorgLatino',0,1);
 /*!40000 ALTER TABLE `twitter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `user_entry` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_entry_1_idx` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,4 +231,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-21 17:37:39
+-- Dump completed on 2019-10-22 15:27:25

@@ -15,7 +15,8 @@
   ?> 
   <ul class="pagination pagination-sm panel-pagination col-xs-5 pull-right" style="margin: 0; padding: 0" id="pagEntry">
     <li><a href="#" aria-label="Anterior"><span aria-hidden="true">&laquo;</span></a></li>
-    <?php       
+    <?php      
+            // calculation to know how many pages there will be 
             $numPages = floor($result->num_rows()/3);
             if($result->num_rows()%3 <> 0) {$numPages+=1;}
             for ($x = 1; $x <= $numPages; $x++) {
@@ -54,6 +55,7 @@
             </tbody> </table>
 </div></div>
 
+<!-- two modals for inserting and editing entries, I know it is possible to use only one for both actions, the time didnt help  -->
 <div id="addE" class="modal fade" role="dialog">
   <div class="modal-dialog">
       
@@ -122,11 +124,18 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
 
 <div id="rest" ></div>  
-<div class='container well well-sm  col-xs-12' id='twt' > </div>
+<div class='wrapper well well-sm  col-xs-12' id="twt" > 
+
+<!-- It really looks better the way it is, rather than using a side bar  -->
+<!-- <div class="sidenav" id="twt"> </div> -->
+</div> 
+
+
 <script type='text/javascript'>
+    // here the default pagination loads
     var paginationEntry = new Pagination('tableEntry', 3); 
     paginationEntry.init(); 
     paginationEntry.showPageNav('paginationEntry', 'pagEntry'); 
