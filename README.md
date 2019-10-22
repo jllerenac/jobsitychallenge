@@ -35,6 +35,8 @@ AllowOverride All <br>
 Require all Granted <br>
 < /Directory> <br>
 
+Verify that mod_rewrite is enabled in apache, execute sudo a2enmod rewrite and you should be fine <br>
+
 6) Make sure that the following line is in /etc/my.cnf  <br>
 log_bin_trust_function_creators = 1;   <br>
 
